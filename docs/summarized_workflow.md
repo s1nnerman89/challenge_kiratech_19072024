@@ -1,12 +1,27 @@
 # Workflow
 
-- [] Provision con packer 
-- [] Configura con ansible
-- [] Provisioning kubernetes con Terraform:
-	- [] installa manager e due worker, configura modo cluster
-	- [] Crea namespace "kiratech-test"
-	- [] Benchmark security opensource e pubblico
-- [] Deploy applicazione opensource con 3 servizi tramite Helm
-	- [] Impostare HA in modo da minimizzare downtime durante aggiornamenti
-- [] Impostare continuous integration su tool a scelta (Drone? forse meglio github runners?)
-	- [] Impostare linting di Terraform, Ansible, Helm
+- [ ] Provision 3 VMs su Proxmox
+    - [ ] Generare golden images con HCP Packer (1x manager, 2x worker)
+        - Immagini devono ottemperare ai requisiti minimi di prestazioni e filesystem di Kubernetes
+    - [ ] Deployment con Terraform (kiratech-mngr-01, kiratech-wrkr-01, kiratech-wrkr-02))
+    - Motivare scelta Packer, Terraform, Proxmox su README.md
+- [ ] Configurazione deployed VMs con Ansible
+    - [ ] Applicare aggiornamenti e configurazioni raccomandate per Kubernetes
+        - Fare attenzione se configurazione manager != configurazione worker
+    - [ ] Tuning configurazione per rispettare i requisiti minimi di sicurezza di Kubernetes
+- [ ] Provisioning cluster Kubernetes con Terraform:
+	- [ ] Installa manager e due worker sulle relative VMs, configura modo cluster
+	- [ ] Crea namespace "kiratech-test"
+	- [ ] Benchmark security opensource e pubblico
+        - Scelta benchmark va motivata su README.md
+- [ ] Deploy applicazione opensource con almeno 3 servizi tramite Helm
+	- [ ] Impostare meccanismo di minimizzazione downtime durante aggiornamenti
+- [ ] Configurare pipeline CI su XXXXXX
+    - [ ] Configurare linting codice all'interno della pipeline per:
+        - [ ] Terraform
+        - [ ] Ansible
+        - [ ] Helm
+    - Libera scelta del tool di Continuous Integration 
+        - Drone? 
+        - Forse meglio github runners?
+	- [ ] Impostare linting di Terraform, Ansible, Helm
