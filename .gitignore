@@ -35,4 +35,4 @@ terraform.rc
 
 # Manual additions
 # NOTE: maybe we should keep the files in the gitignore as long as the project is complete, after which we redact all sensible data from the files and remove the following exclusions
-credentials.pkr.hcl
+#credentials.pkr.hcl
