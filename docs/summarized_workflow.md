@@ -3,12 +3,27 @@
 - [ ] Provision 3 VMs su Proxmox
     - [ ] Generare golden images con HCP Packer (1x manager, 2x worker)
         - Immagini devono ottemperare ai requisiti minimi di prestazioni e filesystem di Kubernetes
+        - Requisiti per kiratech-mngr-template:
+            - RAM: 4 GB
+            - CPU: 4 CPUs
+            - HDD: 40 GB
+            - swap-off
+        - Requisiti per kiratech-wrkr-template:
+            - RAM: 2 GB
+            - CPU: 2 CPU
+            - HDD: 40 GB
+            - swap-off
     - [ ] Deployment con Terraform (kiratech-mngr-01, kiratech-wrkr-01, kiratech-wrkr-02))
     - Motivare scelta Packer, Terraform, Proxmox su README.md
 - [ ] Configurazione deployed VMs con Ansible
     - [ ] Applicare aggiornamenti e configurazioni raccomandate per Kubernetes
         - Fare attenzione se configurazione manager != configurazione worker
     - [ ] Tuning configurazione per rispettare i requisiti minimi di sicurezza di Kubernetes
+    - Lista azioni provisioning:
+        ```
+        - Configurato swap-off
+        - Installato cri-dockerd
+        ```
 - [ ] Provisioning cluster Kubernetes con Terraform:
 	- [ ] Installa manager e due worker sulle relative VMs, configura modo cluster
 	- [ ] Crea namespace "kiratech-test"
