@@ -24,7 +24,13 @@ Repository for solving my hiring challenge @ Kiratech
 - Definito il file delle credenziali di connessione all'API di Proxmox (`credentials.pkr.hcl`);
 - Definiti i file di configurazione di Packer per la creazione delle VM con i requisiti richiesti;
     - Sono stati aggiunti alcuni step di provisioning per la configurazione di `unattended-upgrades`, l'hardening del daemon `sshd` e l'installazione di Docker Engine e alcuni pacchetti di uso comune;
-- I file di configurazione sono stati testati con successo su un nodo Proxmox 8.2.4; le golden images create sono state utilizzate nelle fasi successive.
+- Installati i plugin necessari (definiti nei file di configurazione) per connettere Packer all'API di Proxmox
+    `packer init <.pkr.hcl file>`
+- Testata validità configurazione:
+    `packer validate -var-file="<cred_file>" <.pkr.hcl file>`
+- Create golden images su target Proxmox:
+    `packer build -var-file="<cred_file>" <.pkr.hcl file>`
+- I test sono stati eseguiti con successo su un nodo Proxmox 8.2.4; le golden images create sono state utilizzate nelle fasi successive.
 
 ## Fase 2 - Deployment delle VMs target a partire dalle golden images
 
