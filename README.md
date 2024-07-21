@@ -1,7 +1,7 @@
 # challenge_kiratech_19072924
 Repository for solving my hiring challenge @ Kiratech
 
-## Fase 1 - Creazione VM da destinare al cluster Kubernetes
+## Fase 1 - Creazione VM da destinare al cluster Kubernetes tramite HCP Packer
 
 ### Motivazione delle scelte di progettazione
 
@@ -32,8 +32,36 @@ Repository for solving my hiring challenge @ Kiratech
     `packer build -var-file="<cred_file>" <.pkr.hcl file>`
 - I test sono stati eseguiti con successo su un nodo Proxmox 8.2.4; le golden images create sono state utilizzate nelle fasi successive.
 
-## Fase 2 - Deployment delle VMs target a partire dalle golden images
+## Fase 2 - Deployment delle VMs target tramite HCP Terraform a partire dalle golden images
 
 ### Motivazione delle scelte di progettazione
+
+- E' stato scelto `Proxmox` come hypervisor target delle virtual machine poichè è la soluzione con la quale posseggo maggior familiarità;
+- E' stato scelto `cloud-init` come utility di provisioning delle VMs target poichè è la soluzione con la quale posseggo maggior familiartà e grazie all'ampio supporto di Ubuntu (sistema operativo utilizzato nelle VMs target) verso questa tecnologia;
+- I file di configurazione di Terraform (compresi i file di configurazione di cloud-init delle singole VM target) sono stati creati basandomi su configurazioni personali create per il mio homelab.
+
+### Lista delle operazioni svolte
+
+- Definito file `auto.tfvars` di Terraform per la dichiarazione delle variabili comuni di connessione all'hypervisor e la password dell'utente ansible che verrà utilizzata nella fase 3
+- Definito file di configurazione del provider di Terraform per Proxmox
+- Definiti file `.yaml` all'interno della cartella `files` necessari alla configurazione delle VMs target tramite `cloud-init`
+- Definito file `kiratech_cluster.tf` in cui viene dichiarata tutta l'infrastruttura richiesta dallo scope della challenge:
+    - 1x VM Ubuntu Server 22.04 con requisiti hardware minimi per nodo 'manager' di Kubernetes;
+    - 2x VMs Ubuntu Server 22.04 con requisiti hardware minimi per nodo 'worker' di Kubernetes;
+    - 3x Configuration snippets di cloud-init per il provisioning iniziale delle VMs target comprendente:
+        - Configurazione timezone;
+        - Aggiornamento database APT e upgrade pacchetti APT preinstallati;
+        - Configurazione di un utente con capacità `sudoer` con password e chiavi ssh autorizzate per l'accesso remoto;
+- Validato plan applicato da Terraform tramite: 
+    `terraform plan`
+- Applicato plan approvato di Terraform tramite:
+    `terraform apply`
+- I test sono stati eseguiti con successo su un nodo Proxmox 8.2.4.
+
+## Fase 3 - Configurazione delle VMs come nodi del cluster Kubernetes tramite Ansible
+
+### Motivazione delle scelte di progettazione
+
+- E' stato utilizzato l'utente `ansible` generato al momento della creazione delle golden images con HCP Packer;
 
 ### Lista delle operazioni svolte

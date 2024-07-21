@@ -1,0 +1,15 @@
+#cloud-config
+ssh:
+  ssh_quiet_keygen: true
+package_upgrade: true
+timezone: Europe/Rome
+users:
+- name: s1nnerman89
+  groups: [adm, sudo]
+  lock-passwd: false
+  shell: /bin/bash
+  # Generated with printf '<password>' | openssl passwd -6 -salt '<16-char-salt>' -stdin
+  passwd: <REDACTED>
+  ssh_authorized_keys:
+    - <REDACTED>
+hostname: kiratech-mngr-01
