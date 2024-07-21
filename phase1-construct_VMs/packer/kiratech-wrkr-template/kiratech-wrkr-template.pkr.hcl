@@ -37,7 +37,7 @@ variable "ansible_user_password" {
 }
 
 # Resource Definiation for the VM Template
-source "proxmox-iso" "kiratech-mngr-template" {
+source "proxmox-iso" "kiratech-wrkr-template" {
  
     # Proxmox Connection Settings
     proxmox_url = var.proxmox_api_url
@@ -47,7 +47,7 @@ source "proxmox-iso" "kiratech-mngr-template" {
     # VM General Settings
     node = "<REDACTED>"
     vm_id = "951"
-    vm_name = "kiratech-mngr-01"
+    vm_name = "kiratech-wrkr-template"
     template_description = "Ubuntu Server VM - 22.04.03 - EFI - Kubernetes Worker - Template generated with packer"
     tags = "template"
     machine = "q35"
@@ -128,8 +128,8 @@ source "proxmox-iso" "kiratech-mngr-template" {
 # Build Definition to create the VM Template
 build {
 
-    name = "kiratech-mngr-template"
-    sources = ["source.proxmox-iso.kiratech-mngr-template"]
+    name = "kiratech-wrkr-template"
+    sources = ["source.proxmox-iso.kiratech-wrkr-template"]
 
     # REQUIRED FOR CLOUD-INIT
     # Provisioning the VM Template for Cloud-Init Integration in Proxmox #1

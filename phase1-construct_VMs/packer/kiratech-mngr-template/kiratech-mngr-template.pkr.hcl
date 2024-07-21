@@ -47,7 +47,7 @@ source "proxmox-iso" "kiratech-mngr-template" {
     # VM General Settings
     node = "<REDACTED>"
     vm_id = "950"
-    vm_name = "kiratech-mngr-01"
+    vm_name = "kiratech-mngr-template"
     template_description = "Ubuntu Server VM - 22.04.03 - EFI - Kubernetes Manager - Template generated with packer"
     tags = "template"
     machine = "q35"
