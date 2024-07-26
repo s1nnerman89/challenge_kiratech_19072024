@@ -39,6 +39,7 @@ Repository for solving my hiring challenge @ Kiratech
 - E' stato scelto `Proxmox` come hypervisor target delle virtual machine poichè è la soluzione con la quale posseggo maggior familiarità;
 - E' stato scelto `cloud-init` come utility di provisioning delle VMs target poichè è la soluzione con la quale posseggo maggior familiartà e grazie all'ampio supporto di Ubuntu (sistema operativo utilizzato nelle VMs target) verso questa tecnologia;
 - I file di configurazione di Terraform (compresi i file di configurazione di cloud-init delle singole VM target) sono stati creati basandomi su configurazioni personali create per il mio homelab.
+- k8s richiede indirizzi IP statici; le VM sono state configurate in modalità "dhcp" e l'IP statico viene assegnato automaticamente dal router (pfSense nello scenario di testing) tramite static entry basata sul MAC della virtual machine nel suo DHCP Server. E' stato scelto questo approccio invece che la definizione di un ip statico a livello del SO non per un motivo particolare ma perchè non erano state fornite indicazioni specifiche nel testo della challenge.
 
 ### Lista delle operazioni svolte
 
