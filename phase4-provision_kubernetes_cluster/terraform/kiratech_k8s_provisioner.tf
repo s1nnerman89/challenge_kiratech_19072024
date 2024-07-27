@@ -45,25 +45,25 @@ resource "kubernetes_namespace" "kiratech-test" {
 
 # Configure Kube-bench
 
-#resource "kubernetes_config_map" "kube_bench_config" {
-  #metadata {
-    #name      = "kube-bench-config"
-    #namespace = kubernetes_namespace.kiratech-test.metadata[0].name
-  #}
+resource "kubernetes_config_map" "kube_bench_config" {
+  metadata {
+    name      = "kube-bench-config"
+    namespace = kubernetes_namespace.kiratech-test.metadata[0].name
+  }
 
-  #data = {
-    #"kube-bench-config.yaml" = <<EOF
-#apiVersion: v1
-#kind: ConfigMap
-#metadata:
-  #name: kube-bench-config
-  #namespace: kiratech-test
-#data:
-  #kube-bench-config.yaml: |
+  data = {
+    "kube-bench-config.yaml" = <<EOF
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kube-bench-config
+  namespace: kiratech-test
+data:
+  kube-bench-config.yaml: |
     # Add any specific kube-bench configuration here
-#EOF
-  #}
-#}
+EOF
+  }
+}
 
 # Create job for running Kube-bench
 
