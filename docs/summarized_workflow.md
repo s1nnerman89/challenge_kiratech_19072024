@@ -27,7 +27,7 @@
 - [X] Provisioning cluster Kubernetes con Terraform:
 	- [X] Installa manager e due worker sulle relative VMs, configura modo cluster
 	- [X] Crea namespace "kiratech-test"
-	- [ ] Benchmark security opensource e pubblico
+	- [X] Benchmark security opensource e pubblico
         - Scelta benchmark va motivata su README.md
 - [ ] Deploy applicazione opensource con almeno 3 servizi tramite Helm
 	- [ ] Impostare meccanismo di minimizzazione downtime durante aggiornamenti

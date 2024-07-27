@@ -66,3 +66,19 @@ Repository for solving my hiring challenge @ Kiratech
 - E' stato utilizzato l'utente `ansible` generato al momento della creazione delle golden images con HCP Packer;
 
 ### Lista delle operazioni svolte
+
+## Fase 4 - Provision del cluster k8s utilizzando Terraform
+
+### Motivazione delle scelte di progettazione
+
+- E' stato scelto `rke` come provider Terraform perchè
+- E' stato scelto `kubernetes` come provider Terraform perchè
+- E' stato scelto `kube-bench` come benchmark di sicurezza perchè
+    - In particolare, è stato scelto il benchamrk `rke2-cis-1.7` perchè consigliato dal creatore per cluster di tipo `rke` ([Fonte:](Recommended for rancher clusters https://github.com/aquasecurity/kube-bench/blob/main/docs/running.md))
+
+### Lista delle operazioni svolte
+
+- Scaricato `kubectl` usando il comando fornito dalla procedura ufficiale su una VM esterna al cluster:
+    `curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"` 
+- Utilizzato `kubectl` per scaricare da remoto il log d'esecuzione di `kube-bench` tramite il comando:
+    `kubectl logs kube-bench-7pdfc -n kiratech-test -s https://192.168.0.103:6443 --insecure-skip-tls-verify=true --kubeconfig=config/kube_config.yaml > logs/kube-bench.log`
