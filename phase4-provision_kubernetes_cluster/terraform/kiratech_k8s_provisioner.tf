@@ -32,11 +32,16 @@ resource "rke_cluster" "kiratech_rancher_cluster" {
 
 # Create Namespace
 
-#resource "kubernetes_namespace" "kiratech-test" {
-  #metadata {
-    #name = var.cluster_namespace
-  #}
-#}
+resource "local_file" "kube_config_yaml" {
+  content = "${rke_cluster.kiratech_rancher_cluster.kube_config_yaml}"
+  filename = "${path.root}/kube_config.yaml"
+}
+
+resource "kubernetes_namespace" "kiratech-test" {
+  metadata {
+    name = var.cluster_namespace
+  }
+}
 
 # Configure Kube-bench
 
