@@ -117,13 +117,13 @@
         enabled: yes
         daemon-reload: yes
 
-    # INSTALL DOCKER SPECIFIC VERSION COMPATIBLE WITH RANCHER - MAXIMUM SUPPORTED IS XX.XX.X - ADD TO MODIFICATIONS ON WRITEUP
+    # INSTALL DOCKER SPECIFIC VERSION COMPATIBLE WITH RANCHER - MAXIMUM SUPPORTED IS 24.0.9 - ADD TO MODIFICATIONS ON WRITEUP
 
     - name: install Docker Engine for rke provider
       apt:
         name:
-          - docker-ce 
-          - docker-ce-cli 
+          - docker-ce=5:24.0.9-1~ubuntu.22.04~jammy
+          - docker-ce-cli=5:24.0.9-1~ubuntu.22.04~jammy
           - docker-buildx-plugin 
           - docker-compose-plugin
         state: present
