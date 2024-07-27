@@ -64,6 +64,5 @@ Repository for solving my hiring challenge @ Kiratech
 ### Motivazione delle scelte di progettazione
 
 - E' stato utilizzato l'utente `ansible` generato al momento della creazione delle golden images con HCP Packer;
-- \[TEMP\ - Includere doppia soluzione per inizializzazione cluster, ansible e terraform w/ rancher; motivazione: ansible inizializza un cluster di k8s puro, il provider scelto di Terraform invece installa il flavour di Rancher] 
 
 ### Lista delle operazioni svolte
