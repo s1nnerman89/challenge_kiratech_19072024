@@ -82,3 +82,15 @@ Repository for solving my hiring challenge @ Kiratech
     `curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"` 
 - Utilizzato `kubectl` per scaricare da remoto il log d'esecuzione di `kube-bench` tramite il comando:
     `kubectl logs kube-bench-7pdfc -n kiratech-test -s https://192.168.0.103:6443 --insecure-skip-tls-verify=true --kubeconfig=config/kube_config.yaml > logs/kube-bench.log`
+
+## Fase 5 - Deployment di un applicazione con almeno tre servizi utilizzando Helm
+
+### Motivazione delle scelte di progettazione
+
+### Lista delle operazioni svolte
+
+## Fase 6 - Configurazione di una pipeline di Continuous Integration per il linting del codice
+
+### Motivazione delle scelte di progettazione
+
+### Lista delle operazioni svolte
