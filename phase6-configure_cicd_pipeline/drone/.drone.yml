@@ -1,0 +1,19 @@
+kind: pipeline
+type: docker
+name: default
+
+steps:
+- name: tflint
+  image: terraform/tflint
+  commands:
+    - tflint
+
+- name: ansible-lint
+  image: ansible/ansible-lint
+  commands:
+    - ansible-lint
+
+- name: helm-lint
+  image: cdrx/kubectl
+  commands:
+    - helm lint charts/
