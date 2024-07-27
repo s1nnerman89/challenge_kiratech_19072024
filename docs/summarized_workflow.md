@@ -15,18 +15,18 @@
             - swap-off
     - [X] Deployment con Terraform (kiratech-mngr-01, kiratech-wrkr-01, kiratech-wrkr-02)
     - Motivare scelta Packer, Terraform, Proxmox su README.md
-- [ ] Configurazione deployed VMs con Ansible
-    - [ ] Applicare aggiornamenti e configurazioni raccomandate per Kubernetes
+- [X] Configurazione deployed VMs con Ansible
+    - [X] Applicare aggiornamenti e configurazioni raccomandate per Kubernetes
         - Fare attenzione se configurazione manager != configurazione worker
-    - [ ] Tuning configurazione per rispettare i requisiti minimi di sicurezza di Kubernetes
+    - [X] Tuning configurazione per rispettare i requisiti minimi di sicurezza di Kubernetes
     - Lista azioni provisioning:
         ```
         - Configurato swap-off
         - Installato cri-dockerd
         ```
-- [ ] Provisioning cluster Kubernetes con Terraform:
-	- [ ] Installa manager e due worker sulle relative VMs, configura modo cluster
-	- [ ] Crea namespace "kiratech-test"
+- [X] Provisioning cluster Kubernetes con Terraform:
+	- [X] Installa manager e due worker sulle relative VMs, configura modo cluster
+	- [X] Crea namespace "kiratech-test"
 	- [ ] Benchmark security opensource e pubblico
         - Scelta benchmark va motivata su README.md
 - [ ] Deploy applicazione opensource con almeno 3 servizi tramite Helm
