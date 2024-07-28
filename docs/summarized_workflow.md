@@ -29,14 +29,12 @@
 	- [X] Crea namespace "kiratech-test"
 	- [X] Benchmark security opensource e pubblico
         - Scelta benchmark va motivata su README.md
-- [ ] Deploy applicazione opensource con almeno 3 servizi tramite Helm
-	- [ ] Impostare meccanismo di minimizzazione downtime durante aggiornamenti
-- [ ] Configurare pipeline CI su XXXXXX
-    - [ ] Configurare linting codice all'interno della pipeline per:
-        - [ ] Terraform
-        - [ ] Ansible
-        - [ ] Helm
+- [X] Deploy applicazione opensource con almeno 3 servizi tramite Helm
+	- [X] Impostare meccanismo di minimizzazione downtime durante aggiornamenti
+- [X] Configurare pipeline CI su XXXXXX
+    - [X] Configurare linting codice all'interno della pipeline per:
+        - [X] Terraform
+        - [X] Ansible
+        - [X] Helm
     - Libera scelta del tool di Continuous Integration 
-        - Drone? 
-        - Forse meglio github runners?
-	- [ ] Impostare linting di Terraform, Ansible, Helm
+        - [X] Drone
