@@ -16,4 +16,4 @@ steps:
 - name: Ansible Linter
   image: cytopia/ansible-lint
   commands:
-    - ansible-lint
+    - ansible-lint -p phase3-configure_VMs/ansible
