@@ -3,18 +3,18 @@ type: docker
 name: default
 
 steps:
-- name: tflint
+- name: Terraform linter
   image: ghcr.io/terraform-linters/tflint
   commands:
     - tflint
 
-- name: ansible-lint
+- name: Ansible Linter
   image: cytopia/ansible-lint
   commands:
     - ansible-lint
 
-- name: helm-lint
-  image: cdrx/kubectl
+- name: Helm Linter
+  image: quay.io/helmpack/chart-testing
   commands:
     - helm lint charts/
   when:
