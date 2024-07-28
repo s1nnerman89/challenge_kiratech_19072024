@@ -2,7 +2,7 @@
 #
 # Modified and adapted for 'Kiratech Hiring Challenge' by s1nnerman89
 
-- hosts: "{{nodes}}"
+- hosts: managers:workers
   become: yes
   tasks:
     - fail:
