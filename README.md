@@ -67,6 +67,8 @@ Repository for solving my hiring challenge @ Kiratech
 
 ### Lista delle operazioni svolte
 
+- I test sono stati eseguiti con successo su un nodo Proxmox 8.2.4.
+
 ## Fase 4 - Provision del cluster k8s utilizzando Terraform
 
 ### Motivazione delle scelte di progettazione
@@ -82,12 +84,14 @@ Repository for solving my hiring challenge @ Kiratech
     `curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"` 
 - Utilizzato `kubectl` per scaricare da remoto il log d'esecuzione di `kube-bench` tramite il comando:
     `kubectl logs kube-bench-7pdfc -n kiratech-test -s https://192.168.0.103:6443 --insecure-skip-tls-verify=true --kubeconfig=config/kube_config.yaml > logs/kube-bench.log`
+- I test sono stati eseguiti con successo su un nodo Proxmox 8.2.4.
 
 ## Fase 5 - Deployment di un applicazione con almeno tre servizi utilizzando Helm
 
 ### Motivazione delle scelte di progettazione
 
 - E' stata scelta `firefly-iii` come app d'esempio in quanto basata su 3 servizi (app, mariadb, redis) come richiesto dalla challenge
+- E' stato usato un server NFS situato su una VM esterna al cluster k8s (VM 'makemake', IP: '192.168.0.104') montato su `/mnt/kiratech-nfs` per garantire la funzionalità di dynamic provisioning
 
 ### Lista delle operazioni svolte
 
@@ -97,9 +101,17 @@ Repository for solving my hiring challenge @ Kiratech
     - Creato PV Claim
 - Modificato file values
     - Lista delle modifiche effettuate:
+- I test sono stati eseguiti con successo su un nodo Proxmox 8.2.4.
 
 ## Fase 6 - Configurazione di una pipeline di Continuous Integration per il linting del codice
 
 ### Motivazione delle scelte di progettazione
 
+- E' stato usato `DroneCI` come piattaforma di CI/CD grazie alla familiarità possieduta con questa tecnologia e un istanza già funzionante nel mio homelab
+- E' stato scelto `tflint`
+- E' stato scelto `chart-testing`
+- E' stato scelto `ansible-lint`
+
 ### Lista delle operazioni svolte
+
+- I test sono stati eseguiti con successo su un nodo Proxmox 8.2.4.
