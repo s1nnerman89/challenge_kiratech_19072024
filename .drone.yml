@@ -8,16 +8,12 @@ steps:
   commands:
     - tflint
 
-- name: Ansible Linter
-  image: cytopia/ansible-lint
-  commands:
-    - ansible-lint
-
 - name: Helm Linter
   image: quay.io/helmpack/chart-testing
   commands:
     - helm lint phase5-deploy_helm_application/helm_charts/firefly-iii/ --values phase5-deploy_helm_application/helm_charts/firefly-iii/values.yaml
-  when:
-    status:
-    - success
-    - failure
+
+- name: Ansible Linter
+  image: cytopia/ansible-lint
+  commands:
+    - ansible-lint
