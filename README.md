@@ -87,7 +87,16 @@ Repository for solving my hiring challenge @ Kiratech
 
 ### Motivazione delle scelte di progettazione
 
+- E' stata scelta `firefly-iii` come app d'esempio in quanto basata su 3 servizi (app, mariadb, redis) come richiesto dalla challenge
+
 ### Lista delle operazioni svolte
+
+- Aggiunta la repo di k8s-at-home per Helm
+- Configurato driver NFS per k8s per salvare i PV su un server NFS esterno al cluster
+    - Creata storage class
+    - Creato PV Claim
+- Modificato file values
+    - Lista delle modifiche effettuate:
 
 ## Fase 6 - Configurazione di una pipeline di Continuous Integration per il linting del codice
 
