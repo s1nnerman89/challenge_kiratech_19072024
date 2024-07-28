@@ -17,3 +17,7 @@ steps:
   image: cdrx/kubectl
   commands:
     - helm lint charts/
+  when:
+    status:
+    - success
+    - failure
