@@ -16,7 +16,7 @@ steps:
 - name: Helm Linter
   image: quay.io/helmpack/chart-testing
   commands:
-    - helm lint charts/
+    - helm lint phase5-deploy_helm_application/helm_charts/firefly-iii/Chart.yaml --values phase5-deploy_helm_application/helm_charts/firefly-iii/values.yaml
   when:
     status:
     - success
