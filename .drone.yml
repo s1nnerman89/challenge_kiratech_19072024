@@ -4,7 +4,7 @@ name: default
 
 steps:
 - name: tflint
-  image: terraform/tflint
+  image: ghcr.io/terraform-linters/tflint
   commands:
     - tflint
 
