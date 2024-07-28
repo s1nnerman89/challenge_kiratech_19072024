@@ -9,7 +9,7 @@ steps:
     - tflint
 
 - name: ansible-lint
-  image: ansible/ansible-lint
+  image: cytopia/ansible-lint
   commands:
     - ansible-lint
 
