@@ -1,5 +1,30 @@
-# challenge_kiratech_19072924
-Repository for solving my hiring challenge @ Kiratech
+# Hiring challenge for Kiratech
+
+## Introduzione
+
+In questa repository è stato caricato tutto il codice necessario alla risoluzione della challenge affidatami dall'hiring manager di Kiratech. 
+
+## Obiettivi della challenge
+
+- [X] Creazione template VMs per macchine del cluster Kubernetes (k8s) tramite **HCP Packer**
+    - [X] Template nodo 'master' k8s
+    - [X] Template nodo 'worker' k8s
+- [X] Deployment *template-based* delle VMs da usare come nodi del cluster k8s tramite **HCP Terraform**
+    - [X] 1x nodo con requisiti minimi di 'master' per cluster k8s
+    - [X] 2x nodi con requisiti minimi di 'worker' per cluster k8s
+- [X] Provisioning delle VMs del cluster k8s tramite playbook **Ansible**
+- [X] Deployment di un cluster k8s sulle VMs target tramite **HCP Terraform**
+    - [X] Deployment cluster k8s formato da 1x nodo 'master' e 2x nodi 'worker'
+    - [X] Creazione del namespace 'kiratech-test'
+    - [X] Esecuzione di un benchmark di sicurezza a scelta
+- [X] Deployment di un applicazione sul cluster k8s tramite **Helm**
+    - Requisiti applicazione:
+        - Minimizzazione downtime durante aggiornamenti
+        - Utilizzo di almeno tre servizi
+- [X] Creazione di una pipeline di Continuous Integration per il linting del codice tramite un tool a scelta (**DroneCI**)
+    - [X] Creazione di uno step della pipeline CI dedicato al linting del codice Terraform
+    - [X] Creazione di uno step della pipeline CI dedicato al linting del codice Ansible
+    - [X] Creazione di uno step della pipeline CI dedicato al linting del codice Helm
 
 ## Fase 1 - Creazione VM da destinare al cluster Kubernetes tramite HCP Packer
 
