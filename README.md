@@ -61,23 +61,6 @@ Lo scenario della challenge prevede l'uso delle seguenti VMs:
 
 Per quanto possibile, questa repository è stata utilizzata come ambiente di sviluppo degli script della challenge, ma soprattutto per gli script delle fasi 1 e 2, in cui è sato riutilizzato mio codice personale presente in altre repository private, l'history delle commit non rispecchia ogni singola modifica effettuata ai vari script.
 
-## Fase 5 - Deployment di un applicazione con almeno tre servizi utilizzando Helm
-
-### Motivazione delle scelte di progettazione
-
-- E' stata scelta `firefly-iii` come app d'esempio in quanto basata su 3 servizi (app, mariadb, redis) come richiesto dalla challenge;
-- E' stato usato un server NFS situato su una VM esterna al cluster k8s (VM 'makemake', IP: '192.168.0.104') montato su `/mnt/kiratech-nfs` per garantire la funzionalità di dynamic provisioning.
-
-### Lista delle operazioni svolte
-
-- Aggiunta la repo di k8s-at-home per Helm
-- Configurato driver NFS per k8s per salvare i PV su un server NFS esterno al cluster
-    - Creata storage class
-    - Creato PV Claim
-- Modificato file values
-    - Lista delle modifiche effettuate:
-- I test sono stati eseguiti con successo su un nodo Proxmox 8.2.4.
-
 ## Fase 6 - Configurazione di una pipeline di Continuous Integration per il linting del codice
 
 ### Motivazione delle scelte di progettazione
