@@ -5,7 +5,6 @@
 - hosts: "{{nodes}}"
   become: yes
   tasks:
-    # DEBUG - CHECK THAT OUR TARGET MACHINES ARE UBUNTU 22.04, OTHERWISE DELETE THIS TASK
     - fail:
        msg: "OS should be Ubuntu 22.04, not {{ ansible_distribution }} {{ ansible_distribution_version }}"
       when: ansible_distribution != 'Ubuntu' or ansible_distribution_version != '22.04'
