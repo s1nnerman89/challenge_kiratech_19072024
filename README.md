@@ -67,6 +67,21 @@ Repository for solving my hiring challenge @ Kiratech
 
 ### Lista delle operazioni svolte
 
+    - Lista delle modifiche apportate al playbook:
+        - Le versioni di `docker-ce` e `docker-ce-cli` sono stata fissate a `5:24.0.9-1~ubuntu.22.04~jammy` come richiesto dalla versione di RKE configurata nella fase 4
+        - Utente `ansible` aggiunto al gruppo `docker` per garantire il funzionamento del provider Terraform `rke` della fase 4
+        - NOTA: per mancanza di tempo non si è controllato se le task di installazione di kubeadm e kubelet siano ridondanti nel caso di deployment del cluster k8s utilizzando il provider Terraform `rke`; probabilmente si, in quanto il playbook installa le versioni 1.29 degli applicativi mentre il provider Terraform `rke` sembra installare la versione 1.28.7. In futuro si potrebbe pensare di snellire il playbook rimuovendo le task in oggetto.
+- Playbook eseguito tramite il comando:
+    ```
+    ansible-playbook \
+    -i inventory/kiratech_inventory.yaml \
+    -e nodes=all
+    -u ansible \
+    --private-key ansible_ssh_key.key \
+    --become \
+    --become-password-file=ansible_sudo_password.txt \
+    playbook/config_k8s_dependencies.yml
+    ```
 - I test sono stati eseguiti con successo su un nodo Proxmox 8.2.4.
 
 ## Fase 4 - Provision del cluster k8s utilizzando Terraform

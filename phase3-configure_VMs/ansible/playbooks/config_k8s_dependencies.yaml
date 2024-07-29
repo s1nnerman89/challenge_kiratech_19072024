@@ -2,9 +2,10 @@
 #
 # Modified and adapted for 'Kiratech Hiring Challenge' by s1nnerman89
 
-- hosts: managers:workers
+- hosts: "{{nodes}}"
   become: yes
   tasks:
+    # DEBUG - CHECK THAT OUR TARGET MACHINES ARE UBUNTU 22.04, OTHERWISE DELETE THIS TASK
     - fail:
        msg: "OS should be Ubuntu 22.04, not {{ ansible_distribution }} {{ ansible_distribution_version }}"
       when: ansible_distribution != 'Ubuntu' or ansible_distribution_version != '22.04'
@@ -83,8 +84,6 @@
         mode: '0644'
         force: true
 
-# IS IT STILL NEEDED IF WE DEPLOY THROUGH RANCHER? - TEST BY REMOVING IT AND REDEPLOYING IT
-
     - name: add Kubernetes' APT repository
       apt_repository:
         repo: "deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.asc] https://pkgs.k8s.io/core:/stable:/v1.29/deb/ /"
@@ -117,8 +116,6 @@
         enabled: yes
         daemon-reload: yes
 
-    # INSTALL DOCKER SPECIFIC VERSION COMPATIBLE WITH RANCHER - MAXIMUM SUPPORTED IS 24.0.9 - ADD TO MODIFICATIONS ON WRITEUP
-
     - name: install Docker Engine for rke provider
       apt:
         name:
@@ -129,15 +126,11 @@
         state: present
         update_cache: true
 
-    # ADD ansible USER TO DOCKER GROUP - NEEDED BY rke TERRAFORM PROVIDER - ADD TO MODIFICATIONS ON WRITEUP
-
     - name: add 'ansible' user to Docker group 
       user:
         name: ansible
         groups: docker
         append: yes
-
-    # IS IT STILL NEEDED IF WE DEPLOY THROUGH RANCHER? - TEST BY REMOVING IT AND REDEPLOYING IT
 
     - name: install Kubelet
       apt:
@@ -145,14 +138,10 @@
         state: present
         update_cache: true
 
-    # IS IT STILL NEEDED IF WE DEPLOY THROUGH RANCHER? - TEST BY REMOVING IT AND REDEPLOYING IT
-
     - name: install Kubeadm
       apt:
         name: kubeadm=1.29.*
         state: present
-
-    # IS IT STILL NEEDED IF WE DEPLOY THROUGH RANCHER? - TEST BY REMOVING IT AND REDEPLOYING IT
 
     - name: enable the Kubelet service, and enable it persistently
       service:
@@ -176,8 +165,6 @@
 
     - name: reboot and wait for reboot to complete
       reboot:
-
-# IS IT STILL NEEDED IF WE DEPLOY THROUGH RANCHER? - TEST BY REMOVING IT AND REDEPLOYING IT
 
 - hosts: kiratech-mngr-01
   become: yes
