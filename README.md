@@ -26,6 +26,37 @@ In questa repository è stato caricato tutto il codice necessario alla risoluzio
     - [X] Creazione di uno step della pipeline CI dedicato al linting del codice Ansible;
     - [X] Creazione di uno step della pipeline CI dedicato al linting del codice Helm;
 
+## Struttura della repository
+
+La challenge è stata suddivisa in sei fasi, ognuna organizzata in una propria cartella. Nel caso di uso di tool multipli per raggiungere l'obiettivo della fase, sono state create cartelle separate per ogni tool.
+Per ogni fase sono stati inclusi tutti i file di configurazione usati con i vari tool (ad esempio, inventory file di Ansible, `auto.tfvar` file di Terraform, etc.) necessari a riprodurre la task nell'ambiente di sviluppo scelto.
+I write-up relativi a ogni fase sono stati inclusi nella cartella `docs` presente nella root di questa repository.
+E'stato effettuato uno scrub di tutti i dati sensibili (chiavi ssh, password, API tokens) da tutti i file di configurazione; sono stati mantenuti i file (vuoti) in cui erano presenti i vari segreti utilizzati dai tool della challenge per dare corrispondenza alle paths presenti nei file di configurazione.
+
+## Ambiente di testing
+
+Per completare la challenge sono stati utilizzati i seguenti tool:
+    - HCP Packer (v1.10.3)
+    - HCP Terraform (v1.8.4)
+        - Sono stati inoltre usati i seguenti provider di terraform:
+            - TheGameProfi/proxmox (v2.9.16)
+            - rancher/rke (v1.5.0)
+            - hashicorp/kubernetes (~> v2.31.0)
+    - Ansible (v2.16.3)
+    - Helm (v3.15.3)
+    - Harness DroneCI (v2.24)
+
+Le configurazioni sono state testate in diverse VM Ubuntu Server 22.04 in funzione su un cluster Proxmox 8.2.4 a due nodi. Tutte le VM usate nello scenario sono configurate con indirizzo statico tramite DHCP Server erogato da una macchina virtuale con pfSense, sul quale è stata configurata una static entry basata sull'indirizzo MAC della VM.
+
+Lo scenario della challenge prevede l'uso delle seguenti VMs:
+
+    | Nome VM          | Indirizzo IP  | Ruolo           |
+    | ---------------- | ------------- | --------------- |
+    | kiratech-mngr-01 | 192.168.0.103 | k8s Master Node |
+    | kiratech-wrkr-01 | 192.168.0.101 | k8s Worker Node |
+    | kiratech-wrkr-02 | 192.168.0.102 | k8s Worker Node |
+    | makemake         | 192.168.0.104 | NFS Server      |
+
 ## Fase 1 - Creazione VM da destinare al cluster Kubernetes tramite HCP Packer
 
 ### Motivazione delle scelte di progettazione
