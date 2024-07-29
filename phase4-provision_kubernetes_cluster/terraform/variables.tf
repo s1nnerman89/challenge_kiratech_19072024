@@ -1,5 +1,8 @@
-
 variable "k8s_version" {
+  type = string
+}
+
+variable "kube-bench_benchmark" {
   type = string
 }
 
@@ -17,11 +20,6 @@ variable "worker2_ip" {
 
 variable "ssh_user" {
   type = string
-}
-
-variable "ssh_user_sudo_password" { # MUST BE REMOVED FROM FINAL FILE IF NOT USED
-  type = string
-  sensitive = true
 }
 
 variable "ssh_key_path" {

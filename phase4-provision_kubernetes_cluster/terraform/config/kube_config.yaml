@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Config
+clusters:
+- cluster:
+    api-version: v1
+    certificate-authority-data: REDACTED
+    server: "https://192.168.0.103:6443"
+  name: "kiratech-k8s-rancher-cluster"
+contexts:
+- context:
+    cluster: "kiratech-k8s-rancher-cluster"
+    user: "kube-admin-kiratech-k8s-rancher-cluster"
+  name: "kiratech-k8s-rancher-cluster"
+current-context: "kiratech-k8s-rancher-cluster"
+users:
+- name: "kube-admin-kiratech-k8s-rancher-cluster"
+  user:
+    client-certificate-data: REDACTED
+    client-key-data: REDACTED

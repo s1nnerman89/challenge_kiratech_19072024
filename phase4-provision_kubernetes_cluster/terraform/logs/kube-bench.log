@@ -1,0 +1,14 @@
+[INFO] 1 Control Plane Security Configuration
+[INFO] 1.1 Control Plane Node Configuration Files
+[...]
+== Summary policies ==
+0 checks PASS
+0 checks FAIL
+35 checks WARN
+0 checks INFO
+
+== Summary total ==
+0 checks PASS
+55 checks FAIL
+60 checks WARN
+16 checks INFO

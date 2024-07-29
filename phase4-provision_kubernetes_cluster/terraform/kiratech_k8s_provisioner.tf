@@ -34,7 +34,7 @@ resource "rke_cluster" "kiratech_rancher_cluster" {
 
 resource "local_file" "kube_config_yaml" {
   content = "${rke_cluster.kiratech_rancher_cluster.kube_config_yaml}"
-  filename = "${path.root}/kube_config.yaml"
+  filename = "${path.root}/config/kube_config.yaml"
 }
 
 resource "kubernetes_namespace" "kiratech-test" {
@@ -67,49 +67,50 @@ EOF
 
 # Create job for running Kube-bench
 
-#resource "kubernetes_job" "kube_bench_job" {
-  #metadata {
-    #name      = "kube-bench"
-    #namespace = kubernetes_namespace.kiratech-test.metadata[0].name
-  #}
+resource "kubernetes_job" "kube_bench_job" {
+  metadata {
+    name      = "kube-bench"
+    namespace = kubernetes_namespace.kiratech-test.metadata[0].name
+  }
 
-  #spec {
-    #template {
-      #metadata {
-        #labels = {
-          #app = "kube-bench"
-        #}
-      #}
+  spec {
+    template {
+      metadata {
+        labels = {
+          app = "kube-bench"
+        }
+      }
 
-      #spec {
-        #container {
-          #name  = "kube-bench"
-          #image = "aquasec/kube-bench:latest"
+      spec {
+        container {
+          name  = "kube-bench"
+          image = "aquasec/kube-bench:latest"
 
-          #command = [
-            #"/kube-bench",
-            #"--version",
-            #var.k8s_version
-          #]
+          command = [
+            "kube-bench",
+            "run",
+            "--benchmark",
+            var.kube-bench_benchmark
+          ]
 
-          #volume_mount {
-            #name      = "kube-bench-config-volume"
-            #mount_path = "/etc/kube-bench"
-          #}
-        #}
+          volume_mount {
+            name      = "kube-bench-config-volume"
+            mount_path = "/etc/kube-bench"
+          }
+        }
 
-        #restart_policy = "Never"
+        restart_policy = "Never"
 
-        #volume {
-          #name = "kube-bench-config-volume"
+        volume {
+          name = "kube-bench-config-volume"
 
-          #config_map {
-            #name = kubernetes_config_map.kube_bench_config.metadata[0].name
-          #}
-        #}
-      #}
-    #}
+          config_map {
+            name = kubernetes_config_map.kube_bench_config.metadata[0].name
+          }
+        }
+      }
+    }
 
-    #backoff_limit = 4
-  #}
-#}
+    backoff_limit = 4
+  }
+}

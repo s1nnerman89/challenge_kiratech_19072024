@@ -92,6 +92,7 @@ Repository for solving my hiring challenge @ Kiratech
 - E' stato scelto `kubernetes` come provider Terraform perchè
 - E' stato scelto `kube-bench` come benchmark di sicurezza perchè
     - In particolare, è stato scelto il benchamrk `rke2-cis-1.7` perchè consigliato dal creatore per cluster di tipo `rke` ([Fonte:](Recommended for rancher clusters https://github.com/aquasecurity/kube-bench/blob/main/docs/running.md))
+- Per motivi di sicurezza non sono stati inclusi i logfile completi di kube-bench, ma sono disponibili su richiesta.
 
 ### Lista delle operazioni svolte
 
