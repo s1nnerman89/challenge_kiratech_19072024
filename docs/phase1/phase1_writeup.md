@@ -20,7 +20,7 @@
         - CPU: 2 CPU
         - RAM: 2 GB
         - HDD: 64 GB
-- Creato un keypair SSH da utilizzare per la connessione alle VMs target durante le varie fasi della challenge
+- Creato un keypair SSH da utilizzare per la connessione alle VMs target durante le varie fasi della challenge;
 - Definito il file delle credenziali di connessione all'API di Proxmox (`credentials.pkr.hcl`);
 - Definiti i file di configurazione di Packer per la creazione delle VM con i requisiti richiesti;
     - Lista degli step di provisioning eseguiti da Packer:
@@ -34,7 +34,7 @@
     - Disabilitato swap (richiesto da Kubernetes);
     - Riconfigurato TZDATA
     ```
-- Installati i plugin necessari (definiti nei file di configurazione) per connettere Packer all'API di Proxmox
+- Installati i plugin necessari (definiti nei file di configurazione) per connettere Packer all'API di Proxmox:
     `packer init <.pkr.hcl file>`
 - Testata validità configurazione:
     `packer validate -var-file="<cred_file>" <.pkr.hcl file>`
