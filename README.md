@@ -60,16 +60,3 @@ Lo scenario della challenge prevede l'uso delle seguenti VMs:
 ## Disclaimer
 
 Per quanto possibile, questa repository è stata utilizzata come ambiente di sviluppo degli script della challenge, ma soprattutto per gli script delle fasi 1 e 2, in cui è sato riutilizzato mio codice personale presente in altre repository private, l'history delle commit non rispecchia ogni singola modifica effettuata ai vari script.
-
-## Fase 6 - Configurazione di una pipeline di Continuous Integration per il linting del codice
-
-### Motivazione delle scelte di progettazione
-
-- E' stato usato `DroneCI` come piattaforma di CI/CD grazie alla familiarità possieduta con questa tecnologia e un istanza già funzionante nel mio homelab
-- E' stato scelto `tflint`
-- E' stato scelto `chart-testing`
-- E' stato scelto `ansible-lint`
-
-### Lista delle operazioni svolte
-
-- I test sono stati eseguiti con successo su un nodo Proxmox 8.2.4.
