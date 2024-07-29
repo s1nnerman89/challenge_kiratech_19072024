@@ -17,3 +17,7 @@ steps:
   image: cytopia/ansible-lint
   commands:
     - ansible-lint -p phase3-configure_VMs/ansible
+
+when:
+  branch:
+    - main
