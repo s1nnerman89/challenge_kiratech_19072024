@@ -57,6 +57,10 @@ Lo scenario della challenge prevede l'uso delle seguenti VMs:
     | kiratech-wrkr-02 | 192.168.0.102 | k8s Worker Node |
     | makemake         | 192.168.0.104 | NFS Server      |
 
+## Disclaimer
+
+Per quanto possibile, questa repository è stata utilizzata come ambiente di sviluppo degli script della challenge, ma soprattutto per gli script delle fasi 1 e 2, in cui è sato riutilizzato mio codice personale presente in altre repository private, l'history delle commit non rispecchia ogni singola modifica effettuata ai vari script
+
 ## Fase 4 - Provision del cluster k8s utilizzando Terraform
 
 ### Motivazione delle scelte di progettazione
