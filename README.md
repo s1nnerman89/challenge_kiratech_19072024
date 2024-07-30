@@ -14,7 +14,9 @@ In questa repository è stato caricato tutto il codice necessario alla risoluzio
     - [X] 2x nodi con requisiti minimi di 'worker' per cluster k8s;
 - [X] Provisioning delle VMs del cluster k8s tramite playbook **Ansible**
 - [X] Deployment di un cluster k8s sulle VMs target tramite **HCP Terraform**
-    - [X] Deployment cluster k8s formato da 1x nodo 'master' e 2x nodi 'worker';
+    - [X] Deployment cluster k8s composto da:
+        - 1x nodo 'master';
+        - 2x nodi 'worker'.
     - [X] Creazione del namespace 'kiratech-test';
     - [X] Esecuzione di un benchmark di sicurezza a scelta.
 - [X] Deployment di un applicazione sul cluster k8s tramite **Helm**
