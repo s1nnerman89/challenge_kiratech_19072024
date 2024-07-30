@@ -1,7 +1,5 @@
 # Write-up Fase 4 della Challenge
 
-# DA ULTIMARE
-
 ## Obiettivo: Provisioning del cluster k8s utilizzando Terraform
 
 ### Motivazione delle scelte di progettazione
