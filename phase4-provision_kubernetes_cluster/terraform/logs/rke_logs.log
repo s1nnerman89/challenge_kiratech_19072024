@@ -1,3 +1,5 @@
+# Redacted logs for demonstration only, full logs available on request.
+
 time="2024-07-27T12:18:57+02:00" level=info msg="Creating RKE cluster..."
 time="2024-07-27T12:18:57+02:00" level=info msg="Updating RKE cluster..."
 [...]
