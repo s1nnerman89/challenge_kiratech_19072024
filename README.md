@@ -52,12 +52,12 @@ Le configurazioni sono state testate in diverse VM Ubuntu Server 22.04 in funzio
 
 Lo scenario della challenge prevede l'uso delle seguenti VMs:
 
-    | Nome VM          | Indirizzo IP  | Ruolo           |
-    | ---------------- | ------------- | --------------- |
-    | kiratech-mngr-01 | 192.168.0.103 | k8s Master Node |
-    | kiratech-wrkr-01 | 192.168.0.101 | k8s Worker Node |
-    | kiratech-wrkr-02 | 192.168.0.102 | k8s Worker Node |
-    | makemake         | 192.168.0.104 | NFS Server      |
+    | Nome VM          | Indirizzo IP  | Nodo Cluster Proxmox | Ruolo           |
+    | ---------------- | ------------- | -------------------- | --------------- |
+    | kiratech-mngr-01 | 192.168.0.103 | pve-2                | k8s Master Node |
+    | kiratech-wrkr-01 | 192.168.0.101 | pve-2                | k8s Worker Node |
+    | kiratech-wrkr-02 | 192.168.0.102 | pve-2                | k8s Worker Node |
+    | makemake         | 192.168.0.104 | pve-1                | NFS Server      |
 
 ## Disclaimer
 
