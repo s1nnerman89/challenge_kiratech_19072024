@@ -21,12 +21,28 @@
 - Creazione file variabili 'variables.tf' di Terraform contenenti tutti i parametri usati nel piano dai provider;
 - Creazione file 'auto.tfvars' per il passaggio dei valori alle variabili all'interno del piano;
     - In futuro si potrebbe aumentare la sicurezza di questo plan utilizzando un gestore di segreti come HCP Vault per la gestione dei dati sensibili.
-- Creazione plan Terraform ESPANDERE
-- Terraform init ESPANDERE
-- Terraform plan ESPANDERE
-- Terraform apply ESPANDERE
+- Copiata chiave privata ssh creata nella fase 1 utilizzata per la connessione ssh alle VMs target;
+    - La chiave è stata impostata con permessi '600';
+- Creazione plan Terraform 'kiratech_k8s_provisioner.tf' per la creazione delle seguenti risorse:
+    ```
+    - Deployment di un cluster k8s composto da 1x master node e 2x worker nodes chiamato 'kiratech-k8s-rancher-cluster';
+    - Recupero file di configurazione cluster 'kube_config.yaml' e salvataggio in locale;
+    - Creazione del namespace 'kiratech-test';
+    - Creazione ConfigMap con parametri di default per 'kube-bench';
+    - Creazione e avvio task di deployment ed esecuzione di 'kube-bench'.
+    ```
+- Installati i provider necessari al funzionamento del plan Terraform:
+    `terraform init`
+- Validato plan applicato da Terraform tramite: 
+    `terraform plan`
+- Applicato plan approvato di Terraform tramite:
+    `terraform apply`
 - Scaricato `kubectl` usando il comando fornito dalla procedura ufficiale su una VM esterna al cluster:
     `curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"` 
+- Verificata la corretta creazione del cluster k8s:
+    `kubectl --kubeconfig=config/kube_config.yaml get nodes`
+- Verificata la corretta creazione del namespace 'kiratech-test':
+    `kubectl --kubeconfig=config/kube_config.yaml get namespaces`
 - Utilizzato `kubectl` per scaricare da remoto il log d'esecuzione di `kube-bench` tramite il comando:
-    `kubectl logs kube-bench-7pdfc -n kiratech-test -s https://192.168.0.103:6443 --insecure-skip-tls-verify=true --kubeconfig=config/kube_config.yaml > logs/kube-bench.log`
-- I test sono stati eseguiti con successo su un nodo Proxmox 8.2.4.
+    `kubectl --kubeconfig=config/kube_config.yaml logs kube-bench-7pdfc -n kiratech-test  > logs/kube-bench.log`
+- I test del codice creato sono stati eseguiti con successo su un nodo Proxmox 8.2.4 utilizzando l'ambiente di sviluppo descritto nel file README.
