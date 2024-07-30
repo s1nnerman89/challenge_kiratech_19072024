@@ -6,15 +6,18 @@
 
 ### Motivazione delle scelte di progettazione
  
-- E' stato scelto `rke` come provider Terraform perchè COMPLETARE
-- E' stato scelto `kubernetes` come provider Terraform perchè COMPLETARE
-- E' stato scelto `kube-bench` come benchmark di sicurezza perchè COMPLETARE
+- E' stato scelto `rke` come provider Terraform perchè consigliato nei forum e nei subreddit della community del self-hosting come buona soluzione per il deployment di un cluster k8s tramite Terraform;
+- E' stato scelto `kubernetes` come provider Terraform in quanto è il provider ufficiale di Hashicorp per far interagire Terraform con un cluster k8s;
+- E' stato scelto `kube-bench` come benchmark di sicurezza perchè nonostante non fosse dettagliato come NIST, aderire al quale rappresenta per esempio una condizione necessaria in ambienti governativi negli USA, ho ritenuto rappresentasse una buona panoramica su quelle che possono essere le possibili falle di sicurezza derivanti da un cluster k8s configurato con parametri di default;
     - In particolare, è stato scelto il benchamrk `rke2-cis-1.7` perchè consigliato dal creatore per cluster di tipo `rke` ([Fonte:](https://github.com/aquasecurity/kube-bench/blob/main/docs/running.md))
-- Per motivi di sicurezza non sono stati inclusi i logfile completi di kube-bench, ma sono disponibili su richiesta.
+    - Per mancanza di tempo, è stato eseguito il benchmark di sicurezza senza però mettere in pratica le raccomandazioni; il cluster configurato può quindi presentare possibili vulnerabilità non mitigate e prima di un deployment in un vero ambiente di produzione andrebbero per lo meno applicati i suggerimenti proposti dal benchmark.
+    - Per motivi di sicurezza non sono stati inclusi i logfile completi di kube-bench, ma sono disponibili su richiesta.
 
 ### Lista delle operazioni svolte
 
-- Creazione file provider ESPANDERE
+- Creazione file provider di Terraform
+    - E' stato configurato il logging per il provider 'rke', disabilitato successivamente in produzione;
+    - Il provider 'kubernetes' viene configurato tramite il file 'kube_config' generato dal provider 'rke' alla fine del deployment.
 - Creazione file variabili ESPANDERE
 - Creazione file auto.tfvars ESPANDERE
     - In futuro si potrebbe aumentare la sicurezza di questo plan utilizzando un gestore di segreti come HCP Vault per la gestione dei dati sensibili.
