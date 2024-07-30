@@ -1,5 +1,7 @@
 # Write-up Fase 6 della Challenge
 
+# DA ULTIMARE
+
 ## Obiettivo: Configurazione di una pipeline di Continuous Integration per il linting del codice
 
 ### Motivazione delle scelte di progettazione

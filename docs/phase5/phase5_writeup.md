@@ -1,5 +1,7 @@
 # Write-up Fase 5 della Challenge
 
+# DA ULTIMARE
+
 ## Obiettivo: Deployment di un applicazione con almeno tre servizi utilizzando Helm
 
 ### Motivazione delle scelte di progettazione
