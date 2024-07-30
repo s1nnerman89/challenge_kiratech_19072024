@@ -30,4 +30,4 @@
     `terraform plan`
 - Applicato plan approvato di Terraform tramite:
     `terraform apply`
-- I test sono stati eseguiti con successo su un nodo Proxmox 8.2.4.
+- I test del codice creato sono stati eseguiti con successo su un nodo Proxmox 8.2.4 utilizzando l'ambiente di sviluppo descritto nel file README.

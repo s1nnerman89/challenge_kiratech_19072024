@@ -25,4 +25,4 @@
 - Configurato step di linting del codice Helm
 - Configurato step di linting del codice Ansible
 - IMPORTANTE /!\\ - RICONFIGURARE CODICE PIPELINE IN MODO DA TRIGGERARE UNA BUILD AD OGNI COMMIT
-- I test sono stati eseguiti con successo su un nodo Proxmox 8.2.4.
+- I test del codice creato sono stati eseguiti con successo su un nodo Proxmox 8.2.4 utilizzando l'ambiente di sviluppo descritto nel file README.

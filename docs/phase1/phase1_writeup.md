@@ -40,4 +40,4 @@
     `packer validate -var-file="<cred_file>" <.pkr.hcl file>`
 - Create golden images su target Proxmox:
     `packer build -var-file="<cred_file>" <.pkr.hcl file>`
-- I test sono stati eseguiti con successo su un nodo Proxmox 8.2.4; le golden images create sono state utilizzate nelle fasi successive.
+- I test del codice creato sono stati eseguiti con successo su un nodo Proxmox 8.2.4 utilizzando l'ambiente di sviluppo descritto nel file README; le golden images create sono state utilizzate nelle fasi successive.

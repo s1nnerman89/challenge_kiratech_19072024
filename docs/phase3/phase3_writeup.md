@@ -37,4 +37,4 @@
     --become-password-file=ansible_sudo_password.txt \
     playbook/config_k8s_dependencies.yml
     ```
-- I test sono stati eseguiti con successo su un nodo Proxmox 8.2.4.
+- I test del codice creato sono stati eseguiti con successo su un nodo Proxmox 8.2.4 utilizzando l'ambiente di sviluppo descritto nel file README.
