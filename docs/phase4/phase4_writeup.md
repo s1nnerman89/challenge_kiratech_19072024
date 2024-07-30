@@ -15,11 +15,11 @@
 
 ### Lista delle operazioni svolte
 
-- Creazione file provider di Terraform
+- Creazione file provider 'provider.tf' di Terraform;
     - E' stato configurato il logging per il provider 'rke', disabilitato successivamente in produzione;
     - Il provider 'kubernetes' viene configurato tramite il file 'kube_config' generato dal provider 'rke' alla fine del deployment.
-- Creazione file variabili ESPANDERE
-- Creazione file auto.tfvars ESPANDERE
+- Creazione file variabili 'variables.tf' di Terraform contenenti tutti i parametri usati nel piano dai provider;
+- Creazione file 'auto.tfvars' per il passaggio dei valori alle variabili all'interno del piano;
     - In futuro si potrebbe aumentare la sicurezza di questo plan utilizzando un gestore di segreti come HCP Vault per la gestione dei dati sensibili.
 - Creazione plan Terraform ESPANDERE
 - Terraform init ESPANDERE
