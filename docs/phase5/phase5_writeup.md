@@ -6,8 +6,8 @@
 
 ### Motivazione delle scelte di progettazione
 
-- E' stata scelta `firefly-iii` come app d'esempio in quanto basata su 3 servizi (app, mariadb, redis) come richiesto dalla challenge;
-- E' stato usato un server NFS situato su una VM esterna al cluster k8s (VM 'makemake', IP: '192.168.0.104') montato su `/mnt/kiratech-nfs` per garantire la funzionalità di dynamic provisioning.
+- E' stata scelta `firefly-iii` come app d'esempio in quanto basata su 3 servizi (firefly-iii-app, mariadb, redis) come richiesto dalla challenge e per la familiarità avuta con il deployment tramite 'docker-compose' e la sua successiva configurazione;
+- E' stato usato un server NFS situato su una VM esterna al cluster k8s (VM 'makemake', IP: '192.168.0.104', configurata sul nodo Proxmox 'pve-2' del mio homelab) montato sulla cartella `/mnt/kiratech-nfs` per garantire la funzionalità di dynamic provisioning e assicurare una sorta di HA utilizzando uno storage "decentralizzato" e non locale a uno dei nodi del cluster.
 
 ### Lista delle operazioni svolte
 
@@ -15,6 +15,7 @@
 
 - Aggiunta la repo di k8s-at-home per Helm ESPANDERE
     ``
+- Aggiornato catalogo repo di Helm ESPANDERE
 - Configurato driver NFS per k8s per salvare i PV su un server NFS esterno al cluster
     - Creata storage class ESPANDERE
     - Creato PV Claim ESPANDERE
