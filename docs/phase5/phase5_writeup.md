@@ -46,14 +46,15 @@
         - Configurate alcune variabili d'ambiente dell'applicazione:
             - Timezone;
             - APPKEY;
-        - Configurata modalità 'LoadBalancer' per far ottenere all'applicazione un indirizzo IP esterno al cluster;
-            - Le istruzioni ufficiali dell'applicazione prevedevano l'uso della modalità 'ClusterIP' e l'uso di 'kubectl port-forward' per far dialogare l'applicazione con l'ambiente esterno al cluster, la modifica è stata applicata per permetterne l'accesso esterno senza dover ricorrere ad ulteriori comandi dopo il deployment;
         - Abilitata persistenza dei volumi dei server 'mariadb' e 'redis' su server NFS esterno utilizzando il PVC 'pvc-nfs-csi' precedentemente creato;
         - Abilitata authenticazione tramite password per i server 'mariadb' e 'redis';
             - Per 'mariadb' è stato anche creato un utente dedicato chiamato 'firefly' specificatamente per l'app oggetto della challenge.
         ```
+    - Trattandosi di un deployment eseguito su un ambiente bare-metal, non è stato possibile configurare l'opzione `LoadBalancer` per il servizio dell'app, la quale funziona solo su ambienti managed come GCP o AWS; una soluzione (non implementata per mancanza di tempo) per aggirare il problema in ambiente bare-metal sarebbe potuta essere l'installazione di `MetalLB`
 - Effettuato deployment sul namespace 'kiratech-test' dell'applicazione tramite comando:
     `helm install -n kiratech-test kiratech-firefly-iii k8s-at-home/firefly-iii -f helm_charts/firefly-iii/values.yaml`
 - Verificato il corretto deployment dell'applicazione e dei servizi sul namespace 'kiratech-test':
     `kubectl -n kiratech-test get all`
+- Eseguito forwarding del pod di 'firefly-iii' sulla macchina locale:
+    `kubectl port-forward -n kiratech-test svc/kiratech-firefly3-firefly-iii --address 0.0.0.0 8080:8080`
 - I test del codice creato sono stati eseguiti con successo su un nodo Proxmox 8.2.4 utilizzando l'ambiente di sviluppo descritto nel file README.
