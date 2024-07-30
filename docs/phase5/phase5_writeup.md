@@ -7,9 +7,9 @@
 - E' stata scelta la repository [k8s-at-home](https://github.com/k8s-at-home/charts) in quanto dotata di una buona documentazione per il deployment delle applicazioni offerte, una buona presenza su canali di supporto come Discord o Reddit e comunque basata su immagini affidabili come quelle di Bitnami;
 - E' stata scelta `firefly-iii` come app d'esempio in quanto basata su 3 servizi (firefly-iii-app, mariadb, redis) come richiesto dalla challenge e per la familiarità avuta con il deployment tramite 'docker-compose' e la sua successiva configurazione;
 - E' stato usato un server NFS situato su una VM esterna al cluster k8s (VM 'makemake', IP: '192.168.0.104', configurata sul nodo Proxmox 'pve-1' dello scenario di testing descritto nel README) montato sulla cartella `/mnt/kiratech-nfs` per garantire la funzionalità di dynamic provisioning e assicurare una sorta di HA utilizzando uno storage "decentralizzato" e non locale a uno dei nodi del cluster.
-    - Per far eseguire il dynamic provisioning a k8s sul server NFS configurato è stato utilizzato il driver [csi-driver-nfs](https://github.com/kubernetes-csi/csi-driver-nfs), il quale permette la creazione di PersistentVolumes (PV) come subdirectory della root del server NFS utilizzando i PersistentVolumeClaims (PVC)
+    - Per far eseguire il dynamic provisioning a k8s sul server NFS configurato è stato utilizzato il driver [csi-driver-nfs](https://github.com/kubernetes-csi/csi-driver-nfs), il quale permette la creazione di PersistentVolumes (PV) come subdirectory della root del server NFS utilizzando i PersistentVolumeClaims (PVC);
     - Ovviamente soluzioni realmente decentralizzate di storage come Ceph sarebbero più adatte allo scopo, ma non avendole configurate nell'homelab e avendo dei constraints di tempo ben definiti per lo sviluppo della soluzione alla challenge, si è optato per un sistema più semplice.
-- Tutte le password utilizzate in questo deployment sono stringhe di 32 caratteri alfanumerici random generati tramite il comando `pwgen -s 32`
+- Tutte le password utilizzate in questo deployment sono stringhe di 32 caratteri alfanumerici random generati tramite il comando `pwgen -s 32`.
 
 ### Lista delle operazioni svolte
 
