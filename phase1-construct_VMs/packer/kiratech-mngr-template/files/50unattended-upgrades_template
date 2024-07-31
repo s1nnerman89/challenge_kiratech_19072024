@@ -38,6 +38,11 @@ Unattended-Upgrade::Package-Blacklist {
 
     // For more information about Python regular expressions, see
     // https://docs.python.org/3/howto/regex.html
+
+	// Prevent upgrades to Docker Engine to leave it at the version needed by rke
+
+	"docker-ce";
+	"docker-ce-cli"
 };
 
 // This option controls whether the development release of Ubuntu will be
