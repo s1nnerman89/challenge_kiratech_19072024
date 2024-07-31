@@ -11,6 +11,8 @@
         ```
         - Installati docker-ce e docker-ce-cli, versione 5:24.0.9-1~ubuntu.22.04~jammy (Necessario per provider Terraform `rke` usato nella fase 4);
         - Aggiunto utente `ansible` al gruppo `docker` per garantire il funzionamento del provider Terraform `rke` usato nella fase 4;
+        - Aggiunta linea '127.0.0.1 localhost' al file `/etc/hosts` per assicurare ai pod k8s la corretta risoluzione dei record DNS;
+            - Per una causa non investigata per mancanza di tempo, le VMs sono state configurate senza il record localhost nel loro file hosts; ciò impediva un corretto portforward dal pod k8s alla macchina locale, rendendo quindi impossibile accedere all'applicazione istanziata sul cluster k8s; è stato deciso di applicare il fix come task inclusa nel playbook ansible finchè non si identifica la vera causa di questo comportamento
         ```
         - NOTA: per mancanza di tempo non si è controllato se le task di installazione di kubeadm e kubelet siano ridondanti nel caso di deployment del cluster k8s utilizzando il provider Terraform `rke`; probabilmente si, in quanto il playbook installa le versioni 1.29 degli applicativi mentre il provider Terraform `rke` sembra installare la versione 1.28.7. In futuro si potrebbe pensare di snellire il playbook rimuovendo le task in oggetto.
     - Alcune delle task del playbook (installazione `kubelet`, `kubeadm`) potrebbero esse ridondanti a causa del metodo di deployment del cluster k8s scelto; a causa dei constraints di tempo nell'eseguire la challenge non è stato possibile verificare questa ipotesi ma in futuro si potrebbe ottimizzare ulteriormento il flow d'esecuzione;
