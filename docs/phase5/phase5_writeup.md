@@ -57,4 +57,7 @@
     `kubectl -n kiratech-test get all`
 - Eseguito forwarding del pod di 'firefly-iii' sulla macchina locale:
     `kubectl port-forward -n kiratech-test svc/kiratech-firefly3-firefly-iii --address 0.0.0.0 8080:8080`
+- Verificato corretto funzionamento dell'applicazione istanziata sul cluster:
+    `curl http://192.168.0.103:8080`
+# AGGIUNGERE RISPOSTA DI CURL
 - I test del codice creato sono stati eseguiti con successo su un nodo Proxmox 8.2.4 utilizzando l'ambiente di sviluppo descritto nel file README.
