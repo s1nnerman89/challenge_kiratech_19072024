@@ -59,5 +59,21 @@
     `kubectl port-forward -n kiratech-test svc/kiratech-firefly3-firefly-iii --address 0.0.0.0 8080:8080`
 - Verificato corretto funzionamento dell'applicazione istanziata sul cluster:
     `curl http://192.168.0.103:8080`
-# AGGIUNGERE RISPOSTA DI CURL
+
+    ```
+    Response
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="refresh" content="0;url='http://192.168.0.103:8080/login'" />
+
+        <title>Redirecting to http://192.168.0.103:8080/login</title>
+    </head>
+    <body>
+        Redirecting to <a href="http://192.168.0.103:8080/login">http://192.168.0.103:8080/login</a>.
+    </body>
+    </html>
+    ```
 - I test del codice creato sono stati eseguiti con successo su un nodo Proxmox 8.2.4 utilizzando l'ambiente di sviluppo descritto nel file README.
