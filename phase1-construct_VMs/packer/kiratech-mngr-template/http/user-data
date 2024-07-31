@@ -2,6 +2,8 @@
 autoinstall:
   version: 1
   locale: it_IT.UTF-8
+  # Tentative fix for missing '127.0.0.1 localhost' from all VMs deployed with this template
+  manage_etc_hosts: localhost
   keyboard:
     layout: it
   ssh:
