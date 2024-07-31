@@ -131,6 +131,16 @@
         groups: docker
         append: yes
 
+    # Needed to allow DNS resolution to pods; if this line is missing 'kubectl port-forward' crashes as soon a connection is made
+    # We should investigate the root cause of why this happens
+    - name: Ensure localhost entry is present in /etc/hosts
+      lineinfile:
+        path: /etc/hosts
+        regexp: '^127\.0\.0\.1'
+        line: "127.0.0.1 localhost"
+        state: present
+        create: yes
+
     - name: install Kubelet
       apt:
         name: kubelet=1.29.*
