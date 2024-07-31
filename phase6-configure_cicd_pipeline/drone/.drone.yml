@@ -18,6 +18,9 @@ steps:
   commands:
     - ansible-lint -p phase3-configure_VMs/ansible
 
-when:
+trigger:
+  event:
+    - push
   branch:
-    - main
+    include:
+      - main
