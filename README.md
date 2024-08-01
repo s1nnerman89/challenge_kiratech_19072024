@@ -1,4 +1,4 @@
-# Hiring challenge for Kiratech
+# Hiring challenge per Kiratech
 
 ## Introduzione
 
