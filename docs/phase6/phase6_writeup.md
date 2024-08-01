@@ -4,8 +4,8 @@
 
 ### Motivazione delle scelte di progettazione
 
-- E' stato scelto DroneCI come piattaforma di Continuous Integration (CI) per la familiarità avuta con lo strumento;
-- E' stato scelto Gitea come piattaforma di Source Code Management (SCM) per la familiarità avuta con lo strumento;
+- E' stato scelto [DroneCI](https://www.drone.io/) come piattaforma di Continuous Integration (CI) per la familiarità avuta con lo strumento;
+- E' stato scelto [Gitea](https://about.gitea.com/) come piattaforma di Source Code Management (SCM) per la familiarità avuta con lo strumento;
 - Il file di configurazione di Drone non è stato lasciato nella root della repository in quanto non è stata collegata un'istanza di DroneCI all'account GitHub utilizzato per questa repository ma è stato spostato nella cartella relativa a questa fase della challenge come soluzione;
     - La pipeline sviluppata è stata comunque testata con successo utilizzando le mie personali istanze di SCM (Gitea) e CI (Drone CI) configurate e attive nel mio homelab;
 - E' stato scelto [`tflint`](https://github.com/terraform-linters/tflint) come software di linting per il codice Terraform in quanto ampiamente utilizzato per lo scopo e grazie alla disponibilità di un'immagine docker utilizzabile nella pipeline di DroneCI;

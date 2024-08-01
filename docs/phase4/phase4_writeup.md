@@ -4,9 +4,9 @@
 
 ### Motivazione delle scelte di progettazione
  
-- E' stato scelto `rke` come provider Terraform perchè consigliato nei forum e nei subreddit della community del self-hosting come buona soluzione per il deployment di un cluster k8s tramite Terraform;
-- E' stato scelto `kubernetes` come provider Terraform in quanto è il provider ufficiale di Hashicorp per far interagire Terraform con un cluster k8s;
-- E' stato scelto `kube-bench` come benchmark di sicurezza perchè nonostante non fosse dettagliato come NIST, aderire al quale rappresenta per esempio una condizione necessaria in ambienti governativi negli USA, ho ritenuto rappresentasse una buona panoramica su quelle che possono essere le possibili falle di sicurezza derivanti da un cluster k8s configurato con parametri di default;
+- E' stato scelto [`rke`](https://registry.terraform.io/providers/rancher/rke/latest) come provider Terraform perchè consigliato nei forum e nei subreddit della community del self-hosting come buona soluzione per il deployment di un cluster k8s tramite Terraform;
+- E' stato scelto [`kubernetes`](https://registry.terraform.io/providers/hashicorp/kubernetes/latest) come provider Terraform in quanto è il provider ufficiale di Hashicorp per far interagire Terraform con un cluster k8s;
+- E' stato scelto [`kube-bench`](https://github.com/aquasecurity/kube-bench) come benchmark di sicurezza perchè nonostante non fosse dettagliato come NIST, aderire al quale rappresenta per esempio una condizione necessaria in ambienti governativi negli USA, ho ritenuto rappresentasse una buona panoramica su quelle che possono essere le possibili falle di sicurezza derivanti da un cluster k8s configurato con parametri di default;
     - In particolare, è stato scelto il benchamrk `rke2-cis-1.7` perchè consigliato dal creatore per cluster di tipo `rke` ([Fonte:](https://github.com/aquasecurity/kube-bench/blob/main/docs/running.md))
     - Per mancanza di tempo, è stato eseguito il benchmark di sicurezza senza però mettere in pratica le raccomandazioni; il cluster configurato può quindi presentare possibili vulnerabilità non mitigate e prima di un deployment in un vero ambiente di produzione andrebbero per lo meno applicati i suggerimenti proposti dal benchmark.
     - Per motivi di sicurezza non sono stati inclusi i logfile completi di kube-bench, ma sono disponibili su richiesta.
