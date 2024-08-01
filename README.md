@@ -32,7 +32,7 @@ In questa repository è stato caricato tutto il codice necessario alla risoluzio
 
 La challenge è stata suddivisa in sei fasi, ognuna organizzata in una propria cartella. Nel caso di uso di tool multipli per raggiungere l'obiettivo della fase, sono state create cartelle separate per ogni tool.
 Per ogni fase sono stati inclusi tutti i file di configurazione usati con i vari tool (ad esempio, inventory file di Ansible, `auto.tfvar` file di Terraform, etc.) necessari a riprodurre la task nell'ambiente di sviluppo scelto.
-I write-up relativi a ogni fase sono stati inclusi nella cartella `docs` presente nella root di questa repository.
+I write-up relativi a ogni fase sono stati inclusi nella cartella `docs` presente in tutte le directory delle varie fasi.
 E'stato effettuato uno scrub di tutti i dati sensibili (chiavi ssh, password, API tokens) da tutti i file di configurazione; sono stati mantenuti i file (vuoti) in cui erano presenti i vari segreti utilizzati dai tool della challenge per dare corrispondenza alle paths presenti nei file di configurazione.
 
 ## Ambiente di testing
