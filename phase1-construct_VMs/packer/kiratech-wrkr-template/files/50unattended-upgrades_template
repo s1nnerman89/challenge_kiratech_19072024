@@ -42,7 +42,7 @@ Unattended-Upgrade::Package-Blacklist {
 	// Prevent upgrades to Docker Engine to leave it at the version needed by rke
 
 	"docker-ce";
-	"docker-ce-cli"
+	"docker-ce-cli";
 };
 
 // This option controls whether the development release of Ubuntu will be
