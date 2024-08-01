@@ -4,7 +4,7 @@
 
 ### Motivazione delle scelte di progettazione
 
-- E' stato deciso di realizzare delle golden images delle virtual machines oggetto del progetto in modo da rendere quest'ultimo più robusto e semplificarne il deployment;
+- E' stato deciso di realizzare dei templates delle virtual machines oggetto del progetto in modo da rendere quest'ultimo più robusto e semplificarne il deployment;
 - E' stato scelto [`Proxmox`](https://www.proxmox.com/en/) come hypervisor target delle virtual machine poichè è la soluzione con la quale posseggo maggior familiarità;
 - E' stato scelto [`Hashicorp Packer`](https://www.hashicorp.com/products/packer) come strumento per la creazione delle virtual machine poichè si tratta della soluzione con la quale posseggo maggior familiarità;
 - I file di configurazione di Packer sono stati creati basandomi su configurazioni personali create per il mio homelab.
@@ -38,6 +38,6 @@
     `packer init <.pkr.hcl file>`
 - Testata validità configurazione:
     `packer validate -var-file="<cred_file>" <.pkr.hcl file>`
-- Create golden images su target Proxmox:
+- Creati templates su target Proxmox:
     `packer build -var-file="<cred_file>" <.pkr.hcl file>`
-- I test del codice creato sono stati eseguiti con successo su un nodo Proxmox 8.2.4 utilizzando l'ambiente di sviluppo descritto nel file README; le golden images create sono state utilizzate nelle fasi successive.
+- I test del codice creato sono stati eseguiti con successo su un nodo Proxmox 8.2.4 utilizzando l'ambiente di sviluppo descritto nel file README; i templates create sono state utilizzate nelle fasi successive.
